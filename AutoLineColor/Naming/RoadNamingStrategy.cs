@@ -39,7 +39,8 @@ namespace AutoLineColor.Naming
             {
                 districtBasedChunk = new DecayingListChunk(
                     DecayMode.RespectEndpoints,
-                    analysis.Districts.Select((d, i) => new DistrictNameChunk(d,
+                    analysis.Districts.Select((d, i) => new DistrictNameChunk(
+                            d,
                             i == analysis.Districts.Count - 1
                                 ? AbbreviationMode.AbbreviateSuffix
                                 : AbbreviationMode.StripSuffix))
@@ -75,11 +76,11 @@ namespace AutoLineColor.Naming
 
                 roadBasedChunk = new DecayingListChunk(
                     DecayMode.RespectPriority,
-                    majority.Select(
-                            (r, i) => new RoadNameChunk(r.name,
-                                i == majoritySize - 1
-                                    ? AbbreviationMode.AbbreviateSuffix
-                                    : AbbreviationMode.StripSuffix))
+                    majority.Select((r, i) => new RoadNameChunk(
+                            r.name,
+                            i == majoritySize - 1
+                                ? AbbreviationMode.AbbreviateSuffix
+                                : AbbreviationMode.StripSuffix))
                         .Cast<IChunk>().ToArray());
             }
 
